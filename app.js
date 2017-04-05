@@ -1,5 +1,3 @@
-/* YouTube API Key: AIzaSyCoejMFrTxc93iRK2MkuaSwHQHdm2BvqsI */
-
 var YT_BASE_URL = 'https://www.googleapis.com/youtube/v3/search/';
 var YT_API_KEY = 'AIzaSyCoejMFrTxc93iRK2MkuaSwHQHdm2BvqsI';
 var PREV_TOKEN = '';
@@ -30,21 +28,6 @@ function getDataFromApi(query, callback) {
 }
 
 function displayYouTubeSearchData(data) {
-
-    /* YouTube API access
-    /
-    /  1. Get description: data.items[0].snippet.description;
-    /  2. Get channel title: data.items[0].snippet.channelTitle;
-    /  3. Get channel ID: data.items[0].snippet.channelId;
-    /  4. Get publish date: data.items[0].snippet.publishedAt;
-    /  5. Get video title: data.items[0].snippet.title;
-    /  6. Get small thumbnail: data.items[0].snippet.thumbnails.default.url;
-    /  7. Get medium thumbnail: data.items[0].snippet.thumbnails.medium.url;
-    /  8. Get high thumbnail: data.items[0].snippet.thumbnails.high.url;
-    /  9. Get video ID: data.items[0].id.videoId;
-    /  10. Get next page token: data.nextPageToken;
-    / 
-    */
 
     PREV_TOKEN = data.prevPageToken;
     NEXT_TOKEN = data.nextPageToken;
