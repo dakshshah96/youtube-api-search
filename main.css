@@ -30,6 +30,7 @@ img {
   margin-top: 50px;
   background: #ccc;
   border: 5px solid #aaa;
+  text-align: center;
 }
 
 .row {
@@ -43,6 +44,10 @@ img {
   border: 3px solid #aaa;
   padding: 10px;
   text-align: center;
+}
+
+.pagination {
+    padding: 20px;
 }
 
 /* No Result Styles */

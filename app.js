@@ -2,8 +2,10 @@
 
 var YT_BASE_URL = 'https://www.googleapis.com/youtube/v3/search/';
 var YT_API_KEY = 'AIzaSyCoejMFrTxc93iRK2MkuaSwHQHdm2BvqsI';
+var PREV_TOKEN = '';
+var NEXT_TOKEN = '';
 
-function getDataFromApi(searchTerm, callback) {
+function makeQueryObject(searchTerm, task) {
     var query = {
         part: 'snippet',
         key: YT_API_KEY,
@@ -12,9 +14,20 @@ function getDataFromApi(searchTerm, callback) {
         type: 'video'
     }
 
-    $.getJSON(YT_BASE_URL, query, callback);
+    if (task === 'next') {
+        query.pageToken = NEXT_TOKEN;
+    }
+
+    if (task === 'prev') {
+        query.pageToken = PREV_TOKEN;
+    }
+
+    return query;
 }
 
+function getDataFromApi(query, callback) {
+    $.getJSON(YT_BASE_URL, query, callback);
+}
 
 function displayYouTubeSearchData(data) {
 
@@ -29,8 +42,12 @@ function displayYouTubeSearchData(data) {
     /  7. Get medium thumbnail: data.items[0].snippet.thumbnails.medium.url;
     /  8. Get high thumbnail: data.items[0].snippet.thumbnails.high.url;
     /  9. Get video ID: data.items[0].id.videoId;
+    /  10. Get next page token: data.nextPageToken;
     / 
     */
+
+    PREV_TOKEN = data.prevPageToken;
+    NEXT_TOKEN = data.nextPageToken;
 
     var currentImage = '';
     var colNumber = 0;
@@ -52,8 +69,22 @@ function searchSubmit() {
     $('#js-youtube-search-form').submit(function(event) {
         event.preventDefault();
         var userEntry = $(this).find('#search-entry').val();
-        getDataFromApi(userEntry, displayYouTubeSearchData);
+        getDataFromApi(makeQueryObject(userEntry, 'submit'), displayYouTubeSearchData);
+
+        $('.btn-next').click(function() {
+            $('.btn-previous').removeAttr('disabled');
+            getDataFromApi(makeQueryObject(userEntry, 'next'), displayYouTubeSearchData);
+        });
+
+        $('.btn-previous').click(function() {
+            getDataFromApi(makeQueryObject(userEntry, 'prev'), displayYouTubeSearchData);
+            if (PREV_TOKEN == undefined) {
+                $('.btn-previous').attr('disabled', true);
+            }
+        });
     });
 }
 
-$(function() { searchSubmit(); });
+$(function() {
+    searchSubmit();
+});
