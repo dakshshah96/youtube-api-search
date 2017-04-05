@@ -35,13 +35,16 @@ function displayYouTubeSearchData(data) {
     var currentImage = '';
     var colNumber = 0;
     if (data.items.length !== 0) {
+        $('#no-results').attr('hidden', true);
+        $('#search-results').removeAttr('hidden');
         data.items.forEach(function(item, index) {
             currentImage = '<a href="https://www.youtube.com/watch?v=' + item.id.videoId + '"><img src="' + item.snippet.thumbnails.high.url + '" title="' + item.snippet.title + '"></a>';
             colNumber = index + 1;
             $('.col-' + colNumber).html(currentImage);
         });
     } else {
-        resultElement += '<p>No results</p>';
+        $('#search-results').attr('hidden', true);
+        $('#no-results').removeAttr('hidden');
     }
 }
 

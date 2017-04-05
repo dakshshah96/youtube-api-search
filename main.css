@@ -24,7 +24,7 @@ img {
 }
 
 
-/* Grid styles */
+/* Result Grid styles */
 
 #search-results {
   margin-top: 50px;
@@ -43,4 +43,13 @@ img {
   border: 3px solid #aaa;
   padding: 10px;
   text-align: center;
+}
+
+/* No Result Styles */
+
+#no-results {
+    margin-top: 50px;
+}
+#no-results p {
+    font-weight: bold;
 }
