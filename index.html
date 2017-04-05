@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>YouTube Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>YouTube Search</h1>
+        <section id="form-entry">
+            <form id="js-youtube-search-form">
+                <label class="entry-label" for="search-entry">What do you feel like watching today?</label>
+                <input type="text" name="search-entry" id="search-entry" placeholder="e.g., mkbhd">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <section id="search-results">
+            <div class="row row-1">
+                <div class="col col-1 result"></div>
+                <div class="col col-2 result"></div>
+                <div class="col col-3 result"></div>
+            </div>
+            <div class="row row-2">
+                <div class="col col-4 result"></div>
+                <div class="col col-5 result"></div>
+                <div class="col col-6 result"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
