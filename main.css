@@ -7,7 +7,8 @@ body {
 }
 
 .container {
-  padding: 50px;
+  padding: 30px;
+  text-align: center;
 }
 
 img {
@@ -21,6 +22,16 @@ img {
 .entry-label {
   display: block;
   margin-bottom: 20px;
+}
+
+#search-entry {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#js-youtube-search-form button {
+  padding: 10px;
+  border-radius: 10px;
 }
 
 
@@ -48,15 +59,40 @@ img {
   text-align: center;
 }
 
-.pagination {
-    padding: 20px;
+.col:hover {
+  border: 3px solid black;
 }
+
+.see-more a {
+  color: white;
+  text-decoration: none;
+}
+
+.see-more a:hover {
+  font-weight: bold;
+}
+
+.pagination {
+  padding: 20px;
+}
+
+.pagination button {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.pagination button:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 
 /* No Result Styles */
 
 #no-results {
-    margin-top: 50px;
+  margin-top: 50px;
 }
+
 #no-results p {
-    font-weight: bold;
+  font-weight: bold;
 }

@@ -55,7 +55,7 @@ function displayYouTubeSearchData(data) {
         $('#no-results').attr('hidden', true);
         $('#search-results').removeAttr('hidden');
         data.items.forEach(function(item, index) {
-            currentImage = '<a href="https://www.youtube.com/watch?v=' + item.id.videoId + '"><img src="' + item.snippet.thumbnails.high.url + '" title="' + item.snippet.title + '"></a><span><a href="https://www.youtube.com/channel/' + item.snippet.channelId + '" title="See more videos by ' + item.snippet.channelTitle + '">More by ' + item.snippet.channelTitle + '</a></span>';
+            currentImage = '<a href="https://www.youtube.com/watch?v=' + item.id.videoId + '"><img src="' + item.snippet.thumbnails.high.url + '" title="' + item.snippet.title + '"></a><span class="see-more"><a href="https://www.youtube.com/channel/' + item.snippet.channelId + '" title="See more videos by ' + item.snippet.channelTitle + '">More by ' + item.snippet.channelTitle + '</a></span>';
             colNumber = index + 1;
             $('.col-' + colNumber).html(currentImage);
 
